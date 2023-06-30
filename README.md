@@ -8,10 +8,7 @@ MLOps son un conjunto de prácticas que tienen como objetivo optimizar el proces
 
 El flujo de trabajo de MLOps atraviesa el ciclo de vida completo del modelo de aprendizaje automático, desde la creación hasta la implementación y la gobernanza continua a partir de entonces. Garantiza una evolución constante del modelo al contrarrestar los cambios y desviaciones emergentes. Esto permite a las empresas generar resultados procesables con precisión que pueden utilizar para tomar mejores decisiones.
 
-**Table of Contents**
 
-
-[TOC]
 
 ## Objetivo del Proyecto
 Llevar desde cero el proceso de un data engineer, pasando por disponibilizar los datos en una API,  hasta desarrollar un sistema de recomendación de películas por medio de la aplicación de un modelo de ML
@@ -35,3 +32,14 @@ En el ETL se limpiaron y transformaron los datos pero ahora debemos obtener los 
 Se selecciona y entrena un modelo de machine learning apropiado. Para este proyecto se llevó a cabo un modelo basado en la similitud del coseno.
 ### 5. SISTEMA DE RECOMENDACIÓN: 
 aquí se llega al proceso de poner en funcionamiento el sistema en un entorno de producción, donde los usuarios pueden acceder y utilizar las funcionalidades de recomendación. Esto se hizo con la ayuda de Render.
+### 5. Deployment: 
+Aquí se llega al proceso de poner en funcionamiento el sistema en un entorno de producción, donde los usuarios pueden acceder y utilizar las funcionalidades de recomendación. Esto se hizo con la ayuda de Render.
+## Requerimientos para llevar a cabo este proyecto:
+- pandas
+- uvicorn
+- scikit-learn
+- matplotlib
+- seaborn
+- wordcloud
+- missingno
+- numpy
