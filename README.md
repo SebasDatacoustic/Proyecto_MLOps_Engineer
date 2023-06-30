@@ -44,5 +44,4 @@ Aquí se llega al proceso de poner en funcionamiento el sistema en un entorno de
 - missingno
 - numpy
 
-###  Link Render:
-[Link Render](http://https://sebastian-figueroa-proyecto-i.onrender.com/docs "Link Render")
+[Link que te lleva al Render](https://sebastian-figueroa-proyecto-i.onrender.com/docs#/default "Link que te lleva al Render")
