@@ -12,19 +12,17 @@ movies_dataset_completo_github=pd.read_csv('movies_dataset_completo_github.csv')
 
 app= FastAPI()
 
-#http://127.0.0.1:8000
-
 @app.get('/filmaciones_por_mes')
 def cantidad_filmaciones_mes(mes):
     mes = mes.capitalize()
-    Total_Películas = movies_dataset_completo.loc[movies_dataset_completo['Mes'] == mes].shape[0]
+    Total_Películas = movies_dataset_github.loc[movies_dataset_github['Mes'] == mes].shape[0]
     return {'Mes':mes, 'Cantidad Totál de Películas':Total_Películas}
 
 
 @app.get('/filmaciones_por_dia')
 def cantidad_filmaciones_dia(dia):
     dia = dia.capitalize()    
-    Total_Películas = movies_dataset_completo.loc[movies_dataset_completo['Día_Español'] == dia].shape[0]
+    Total_Películas = movies_dataset_github.loc[movies_dataset_github['Día_Español'] == dia].shape[0]
     return {'Día':dia, 'Cantidad Totál de Películas':Total_Películas}
 
 
@@ -32,7 +30,7 @@ def cantidad_filmaciones_dia(dia):
 def score_titulo(titulo_de_la_filmacion):
     titulo_de_la_filmacion = titulo_de_la_filmacion.title()    
     
-    pelicula = movies_dataset_completo.loc[movies_dataset_completo['title'] == titulo_de_la_filmacion]
+    pelicula = movies_dataset_github.loc[movies_dataset_github['title'] == titulo_de_la_filmacion]
     if pelicula.empty:
         return  "No se encontró la película."
     
@@ -47,7 +45,7 @@ def score_titulo(titulo_de_la_filmacion):
 
 def votos_titulo(titulo_de_la_filmacion):
     titulo_de_la_filmacion = titulo_de_la_filmacion.title()
-    pelicula = movies_dataset_completo.loc[movies_dataset_completo['title'] == titulo_de_la_filmacion]
+    pelicula = movies_dataset_github.loc[movies_dataset_github['title'] == titulo_de_la_filmacion]
     
     if pelicula.empty:
         return "No se encontró la película."
@@ -59,7 +57,7 @@ def votos_titulo(titulo_de_la_filmacion):
     if total_votos >= 2000:
         return f"La película {titulo_de_la_filmacion} fue estrenada en el año {año_estreno}. La misma cuenta con un total de {total_votos} valoraciones, con un promedio de {promedio_votos}."
     else:
-        return "La película no cumple con el requisito de tener al menos 2000 valoraciones."    
+        return "La película no cumple con el requisito de tener al menos 2000 valoraciones."     
    
  
  
