@@ -30,10 +30,8 @@ Para esta parte se hizo uso de FastAPI
 En el ETL se limpiaron y transformaron los datos pero ahora debemos obtener los datos  que se necesitan para que el modelo de ML sea un éxito. Entonces se deben preparar los datos, ver si necesitan alguna otra limpieza y convertirlos de alguna manera en características que ayudarán al modelo.
 ### 4. SISTEMA DE RECOMENDACIÓN: 
 Se selecciona y entrena un modelo de machine learning apropiado. Para este proyecto se llevó a cabo un modelo basado en la similitud del coseno.
-### 5. SISTEMA DE RECOMENDACIÓN: 
+### 5. Deployment:  
 aquí se llega al proceso de poner en funcionamiento el sistema en un entorno de producción, donde los usuarios pueden acceder y utilizar las funcionalidades de recomendación. Esto se hizo con la ayuda de Render.
-### 5. Deployment: 
-Aquí se llega al proceso de poner en funcionamiento el sistema en un entorno de producción, donde los usuarios pueden acceder y utilizar las funcionalidades de recomendación. Esto se hizo con la ayuda de Render.
 ## Requerimientos para llevar a cabo este proyecto:
 - pandas
 - uvicorn
