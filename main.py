@@ -11,18 +11,17 @@ movies_dataset_recomendación=pd.read_csv('movies_dataset_recomendación.csv')
 movies_dataset_completo_github=pd.read_csv('movies_dataset_completo_github.csv')
 
 app= FastAPI()
-
 @app.get('/filmaciones_por_mes')
 def cantidad_filmaciones_mes(mes):
     mes = mes.capitalize()
-    Total_Películas = movies_dataset_github.loc[movies_dataset_github['Mes'] == mes].shape[0]
+    Total_Películas = movies_dataset_completo_github.loc[movies_dataset_completo_github['Mes'] == mes].shape[0]
     return {'Mes':mes, 'Cantidad Totál de Películas':Total_Películas}
 
 
 @app.get('/filmaciones_por_dia')
 def cantidad_filmaciones_dia(dia):
     dia = dia.capitalize()    
-    Total_Películas = movies_dataset_github.loc[movies_dataset_github['Día_Español'] == dia].shape[0]
+    Total_Películas = movies_dataset_completo_github.loc[movies_dataset_completo_github['Día_Español'] == dia].shape[0]
     return {'Día':dia, 'Cantidad Totál de Películas':Total_Películas}
 
 
@@ -30,7 +29,7 @@ def cantidad_filmaciones_dia(dia):
 def score_titulo(titulo_de_la_filmacion):
     titulo_de_la_filmacion = titulo_de_la_filmacion.title()    
     
-    pelicula = movies_dataset_github.loc[movies_dataset_github['title'] == titulo_de_la_filmacion]
+    pelicula = movies_dataset_completo_github.loc[movies_dataset_completo_github['title'] == titulo_de_la_filmacion]
     if pelicula.empty:
         return  "No se encontró la película."
     
@@ -45,7 +44,7 @@ def score_titulo(titulo_de_la_filmacion):
 
 def votos_titulo(titulo_de_la_filmacion):
     titulo_de_la_filmacion = titulo_de_la_filmacion.title()
-    pelicula = movies_dataset_github.loc[movies_dataset_github['title'] == titulo_de_la_filmacion]
+    pelicula = movies_dataset_completo_github.loc[movies_dataset_completo_github['title'] == titulo_de_la_filmacion]
     
     if pelicula.empty:
         return "No se encontró la película."
