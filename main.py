@@ -4,9 +4,11 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 
 
-movies_dataset_completo= pd.read_csv("../movies_dataset_completo.csv")
+movies_dataset_completo= pd.read_csv("movies_dataset_github.csv")
 
-movies_dataset_recomendación=pd.read_csv('../movies_dataset_recomendación.csv')
+movies_dataset_recomendación=pd.read_csv('movies_dataset_recomendación.csv')
+
+movies_dataset_completo_github=pd.read_csv('movies_dataset_completo_github.csv')
 
 app= FastAPI()
 
@@ -63,8 +65,8 @@ def votos_titulo(titulo_de_la_filmacion):
  
 @app.get('/actor')  
 def get_actor(nombre_actor):
-    movies_dataset_completo['Reparto'] = movies_dataset_completo['Reparto'].fillna('')   
-    actor = movies_dataset_completo[movies_dataset_completo['Reparto'].str.contains(nombre_actor, case=False)]
+    movies_dataset_completo_github['Reparto'] = movies_dataset_completo_github['Reparto'].fillna('')   
+    actor = movies_dataset_completo_github[movies_dataset_completo_github['Reparto'].str.contains(nombre_actor, case=False)]
     cantidad_filmaciones = actor.shape[0]
     éxito = actor['return'].sum()
     promedio = éxito / cantidad_filmaciones if cantidad_filmaciones > 0 else 0
@@ -73,9 +75,9 @@ def get_actor(nombre_actor):
 
 @app.get('/director')
 def get_director(nombre_director):
-    movies_dataset_completo['Director'] = movies_dataset_completo['Director'].fillna('')
+    movies_dataset_completo_github['Director'] = movies_dataset_completo_github['Director'].fillna('')
     
-    director = movies_dataset_completo[movies_dataset_completo['Director'].str.contains(nombre_director, case=False)]
+    director = movies_dataset_completo_github[movies_dataset_completo_github['Director'].str.contains(nombre_director, case=False)]
     if director.empty:
         return "No se encontraron películas del director."
     
